@@ -1,0 +1,42 @@
+<<<<<<< HEAD
+frequency 32 32 8 8 2 2 2 0.9 1 0
+frequency 32 32 16 16 2 2 2 0.9 1 0
+frequency 32 32 32 32 2 2 2 0.9 1 0
+frequency 64 64 8 8 2 2 2 0.9 1 0
+frequency 64 64 16 16 2 2 2 0.9 1 0
+frequency 64 64 32 32 2 2 2 0.9 1 0
+frequency 128 128 8 8 2 2 2 0.9 1 0
+frequency 128 128 16 16 2 2 2 0.9 1 0
+frequency 128 128 32 32 2 2 2 0.9 1 0
+frequency 128 128 64 64 2 2 2 0.9 1 0
+frequency 32 32 8 8 2 2 2 0.9 1 0
+frequency 32 32 16 16 2 2 2 0.9 1 0
+frequency 32 32 32 32 2 2 2 0.9 1 0
+frequency 64 64 8 8 2 2 2 0.9 1 0
+frequency 64 64 16 16 2 2 2 0.9 1 0
+frequency 64 64 32 32 2 2 2 0.9 1 0
+frequency 128 128 8 8 2 2 2 0.9 1 0
+frequency 128 128 16 16 2 2 2 0.9 1 0
+frequency 128 128 32 32 2 2 2 0.9 1 0
+=======
+frequency 32 32 8 8 2 2 2 0.9 1 0
+frequency 32 32 16 16 2 2 2 0.9 1 0
+frequency 32 32 32 32 2 2 2 0.9 1 0
+frequency 64 64 8 8 2 2 2 0.9 1 0
+frequency 64 64 16 16 2 2 2 0.9 1 0
+frequency 64 64 32 32 2 2 2 0.9 1 0
+frequency 128 128 8 8 2 2 2 0.9 1 0
+frequency 128 128 16 16 2 2 2 0.9 1 0
+frequency 128 128 32 32 2 2 2 0.9 1 0
+frequency 128 128 64 64 2 2 2 0.9 1 0
+frequency 32 32 8 8 2 2 2 0.9 1 0
+frequency 32 32 16 16 2 2 2 0.9 1 0
+frequency 32 32 32 32 2 2 2 0.9 1 0
+frequency 64 64 8 8 2 2 2 0.9 1 0
+frequency 64 64 16 16 2 2 2 0.9 1 0
+frequency 64 64 32 32 2 2 2 0.9 1 0
+frequency 128 128 8 8 2 2 2 0.9 1 0
+frequency 128 128 16 16 2 2 2 0.9 1 0
+frequency 128 128 32 32 2 2 2 0.9 1 0
+>>>>>>> 889e751be70f4df71b2c006ca46a953a4cf970b9
+frequency 128 128 64 64 2 2 2 0.9 1 0

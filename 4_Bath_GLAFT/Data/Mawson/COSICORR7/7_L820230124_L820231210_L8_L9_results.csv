@@ -1,0 +1,3 @@
+group,satellite,label,delta_vx (m/d),delta_vy (m/d),KDE_vx (m/d),KDE_vy (m/d),Incorrect match (%)
+7,L8,7_L820230124_L820231210_L8,0.0058,0.0042,0.0,0.0001,50.2793
+7,L9,7_L820230124_L820231210_L9,0.003,0.0026,0.0001,-0.0,48.4986
