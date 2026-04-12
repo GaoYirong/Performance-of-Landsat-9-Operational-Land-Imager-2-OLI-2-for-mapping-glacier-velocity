@@ -72,7 +72,7 @@ This repository provides:
 | Notebook                                                                           | Description                                                    |
 | ---------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | [`Simulated_Displacement.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/1_Simulated_image/Simulated_Displacement.ipynb) | Generate 2D sinusoidal displacement field                      |
-| [`Affine_Transformation.ipynb`](./1_Simulated_Image/Affine_Transformation.ipynb)   | Apply displacement using affine transform + sinc interpolation |
+| [`Affine_Transformation.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/1_Simulated_Image/Affine_Transformation.ipynb)   | Apply displacement using affine transform + sinc interpolation |
 
 🎯 **Purpose**
 Isolate the impact of **radiometric resolution** under ideal conditions (no atmosphere / no geolocation error)
@@ -83,8 +83,8 @@ Isolate the impact of **radiometric resolution** under ideal conditions (no atmo
 
 📂 Folder: [`2_COSI_Corr`](./2_COSI_Corr)
 
-* Simulated image pairs → [`Simulated_Displacement_Corr`](./2_COSI_Corr/Simulated_Displacement_Corr)
-* Real glacier image pairs → [`Glacier_Displacement_Corr`](./2_COSI_Corr/Glacier_Displacement_Corr)
+* Simulated image pairs → [`Simulated_Displacement_Corr`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/2_COSI_Corr/2_2_Simulated)
+* Real glacier image pairs → [`Glacier_Displacement_Corr`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/2_COSI_Corr/2_3_Co-registering%20Displacement)
 
 ⚙️ Processed using **COSI-Corr (ENVI plugin)**
 
@@ -106,8 +106,8 @@ Extract **E–W and N–S displacement components**
 
 | Notebook                                                                                      | Description                     |
 | --------------------------------------------------------------------------------------------- | ------------------------------- |
-| [`Error_Calculation.ipynb`](./3_Comparative_Validation/Error_Calculation.ipynb)               | MAE, RMSE, Bias, Percent Change |
-| [`Statistical_Significance.ipynb`](./3_Comparative_Validation/Statistical_Significance.ipynb) | Two-sample t-test               |
+| [`Error_Calculation.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/3_Comparative_Validation/3_1_Error%20Calculation)              | MAE, RMSE, Bias, Percent Change |
+| [`Statistical_Significance.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/3_Comparative_Validation/3_2_Statistically%20Significant) | Two-sample t-test               |
 
 🎯 **Purpose**
 Quantify and statistically validate performance differences
@@ -120,7 +120,7 @@ Quantify and statistically validate performance differences
 
 | Notebook                                                                       | Description                           |
 | ------------------------------------------------------------------------------ | ------------------------------------- |
-| [`GLAFT_Batch_Processing.ipynb`](./4_GLAFT_Batch/GLAFT_Batch_Processing.ipynb) | Batch evaluation using improved GLAFT |
+| [`GLAFT_Batch_Processing.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/4_Bath_GLAFT)| Batch evaluation using improved GLAFT |
 
 Based on **GLAFT (Zheng et al., 2023)**
 
