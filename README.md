@@ -71,7 +71,7 @@ This repository provides:
 
 | Notebook                                                                           | Description                                                    |
 | ---------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| [`Simulated_Displacement.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/592cfa365622af2c062c9578df6fcb929e6d130c/1_Simulated_image/Simulated_Displacement.ipynb) | Generate 2D sinusoidal displacement field                      |
+| [`Simulated_Displacement.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/1_Simulated_image/Simulated_Displacement.ipynb) | Generate 2D sinusoidal displacement field                      |
 | [`Affine_Transformation.ipynb`](./1_Simulated_Image/Affine_Transformation.ipynb)   | Apply displacement using affine transform + sinc interpolation |
 
 🎯 **Purpose**
