@@ -20,6 +20,7 @@ Glacier surface velocity is a key parameter for understanding glacier dynamics a
 ### 1️⃣ Simulated Displacement Experiments
 
 Folder: `1_Simulated_Image/`
+
  Generate synthetic displacement fields using Landsat 8/9 underfly imagery [Affine_Transformation.ipynb](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/1_Simulated_image/Affine_Transformation.ipynb) and [Simulated_Displacement.ipynb](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/1_Simulated_image/Simulated_Displacement.ipynb)
 - Calculate the error values of Landsat 8 and Landsat 9 to quantify the impact of radiometric resolution [offset_error_calculation.ipynb](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/3_Comparative_Validation/3_1_Error%20Calculation)
 ---
@@ -49,11 +50,8 @@ Folder: `3_Comparative_Validation/`
 
 This module performs quantitative evaluation including:
 
-- Mean Absolute Error (MAE)  
-- Root Mean Square Error (RMSE)  
-- Systematic Bias
-- Percent Difference
-- Statistical significance tests
+- Mean Absolute Error (MAE);Root Mean Square Error(RMSE);Systematic Bias;Percent Difference should be calculate in code: [offset_error_calculation.ipynb](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/3_Comparative_Validation/3_1_Error%20Calculation/offset_error_calculation.ipynb)
+- Statistical significance tests should be calculate in code:[Difference_Examination.ipynb](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/3_Comparative_Validation/3_2_Statistically%20Significant/Difference_Examination.ipynb)
 - Five indicators of GLAFT 
 ---
 
@@ -71,17 +69,9 @@ Zheng, Whyjay, et al. (2023). GLAcier Feature Tracking testkit (GLAFT): a statis
 ### Requirements
 - Python ≥ 3.8  
 - Jupyter Notebook  
-- ENVI (for COSI-Corr processing)
+- ENVI [COSI-Corr](https://www.tectonics.caltech.edu/slip_history/spot_coseis/download_software.html)
 
-## License
-
-This project is licensed under the MIT License.
-
-See the LICENSE file for details.
-
----
-
-## Contact
+## Author
 
 Email: gaoyr26@mail2.sysu.edu.cn  
 School of Geospatial Engineering and Science  
