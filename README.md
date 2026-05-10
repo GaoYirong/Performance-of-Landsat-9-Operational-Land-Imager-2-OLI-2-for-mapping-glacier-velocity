@@ -1,242 +1,94 @@
-# <img width="25" height="25" alt="image" src="https://github.com/user-attachments/assets/cfee9560-55c2-4215-b214-fca0f395340b" />  Performance of Landsat 9 OLI-2 for Mapping Glacier Velocity 
+# <img width="30" height="30" alt="image" src="https://github.com/user-attachments/assets/cfee9560-55c2-4215-b214-fca0f395340b" />  
+# 🛰️ Performance Assessment of Landsat 9 OLI-2 for Glacier Velocity Mapping
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
-[![COSI-Corr](https://img.shields.io/badge/COSI--Corr-ENVI-green.svg)]()
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-
-## 📖Contents
-
-* [📌 Objective](#-objective)
-* [🧩 Repository Structure](#-repository-structure)
-* [🛠️ Modules](#️-modules)
-
-  * [1️⃣ Simulated image](#1️⃣-simulated-image-generation)
-  * [2️⃣ Displacement Extraction](#2️⃣-displacement-extraction)
-  * [3️⃣ Comparative Validation](#3️⃣-comparative-validation)
-  * [4️⃣ GLAFT Batch Processing](#4️⃣-glaft-batch-processing)
-* [📦 Dependencies](#-dependencies)
-* [🚀 Quick Start](#-quick-start)
-* [📄 License](#-license)
-* [✉️ Contact](#️-contact)
+[![Python ≥3.8](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)](https://jupyter.org/)
+[![COSI-Corr](https://img.shields.io/badge/COSI--Corr-ENVI-green)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
-## 📌 Objective
+## Project Overview
 
-Glacier surface velocity is a key parameter for understanding glacier dynamics and ice-sheet mass balance.Launched in September 2021, **Landsat 9 OLI-2** operates alongside Landsat 8, reducing revisit time to **8 days** and providing the first **14-bit radiometric resolution** in the Landsat series.
+Glacier surface velocity is a key parameter for understanding glacier dynamics and ice-sheet mass balance. Launched in September 2021, **Landsat 9** carries the Operational Land Imager-2 (OLI-2) sensor and operates alongside **Landsat 8**, reducing revisit time to 8 days and providing improved radiometric performance.This repository provides a complete and reproducible workflow to:
+- Evaluate the radiometric and geolocation performance of Landsat 9 OLI-2  
+- Simulated displacement experiment using Landsat 8/9 underfly imagery
+- Compare Landsat 8 and Landsat 9 results in real glacier velocity mapping
 
-This repository provides:
+## Workflow
 
-* 🔬 **Simulated displacement experiments** using Landsat 8/9 underfly imagery
-* 🧊 **Real glacier velocity retrievals** (Greenland & Antarctica)
-* 📊 **Quantitative accuracy assessment** (radiometric & geometric performance)
+### 1️⃣ Simulated Displacement Experiments
 
-> 📖 **Key findings**
->
-> * Landsat 8 & 9 show strong consistency (**MAE < 0.95 m**)
-> * Landsat 9 improves accuracy by **0.46%–2.81%** under extreme radiance
-> * Exhibits improved coregistration stability
-
+Folder: `1_Simulated_Image/`
+ Generate synthetic displacement fields using Landsat 8/9 underfly imagery [Affine_Transformation.ipynb](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/1_Simulated_image/Affine_Transformation.ipynb) and [Simulated_Displacement.ipynb](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/1_Simulated_image/Simulated_Displacement.ipynb)
+- Calculate the error values of Landsat 8 and Landsat 9 to quantify the impact of radiometric resolution [offset_error_calculation.ipynb](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/3_Comparative_Validation/3_1_Error%20Calculation)
 ---
 
-## 🧩 Repository Structure
+### 2️⃣ Velocity Extraction
 
-```bash
-.
-├── 1_Simulated_Image/
-│   ├── Simulated_Displacement.ipynb
-│   └── Affine_Transformation.ipynb
-├── 2_COSI_Corr/
-│   ├── Simulated_Displacement_Corr/
-│   └── Glacier_Displacement_Corr/
-├── 3_Comparative_Validation/
-│   ├── Error_Calculation.ipynb
-│   └── Statistical_Significance.ipynb
-├── 4_GLAFT_Batch/
-│   └── GLAFT_Batch_Processing.ipynb
-├── data/
-├── results/
-└── README.md
-```
+Folder: `2_COSI_Corr/`
 
----
+Displacement fields are derived using **COSI-Corr** (ENVI plugin).
 
-## 🛠️ Modules
+The workflow includes:
 
-### 1️⃣ Simulated image
+- Image preprocessing  
+- Co-registration  
+- Subpixel correlation  
+- Displacement vector extraction  
 
-📂 Folder: [`1_Simulated_Image`](./1_Simulated_Image)
+Outputs:
 
-| Notebook                                                                           | Description                                                    |
-| ---------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| [`Simulated_Displacement.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/1_Simulated_image/Simulated_Displacement.ipynb) | Generate 2D sinusoidal displacement field                      |
-| [`Affine_Transformation.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/blob/master/1_Simulated_Image/Affine_Transformation.ipynb)   | Apply displacement using affine transform + sinc interpolation |
-
-🎯 **Purpose**
-Isolate the impact of **radiometric resolution** under ideal conditions (no atmosphere / no geolocation error)
-
----
-
-### 2️⃣ Displacement Extraction
-
-📂 Folder: [`2_COSI_Corr`](./2_COSI_Corr)
-
-* Simulated image pairs → [`Simulated_Displacement_Corr`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/2_COSI_Corr/2_2_Simulated)
-* Real glacier image pairs → [`Glacier_Displacement_Corr`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/2_COSI_Corr/2_3_Co-registering%20Displacement)
-
-⚙️ Processed using **COSI-Corr (ENVI plugin)**
-
-Key parameters:
-
-* Initial window size
-* Final window size
-* Step size
-* SNR threshold
-
-🎯 **Purpose**
-Extract **E–W and N–S displacement components**
-
----
+- East–West (E–W) displacement  
+- North–South (N–S) displacement
+- The demo data in [demo data](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/2_COSI_Corr)
 
 ### 3️⃣ Comparative Validation
 
-📂 Folder: [`3_Comparative_Validation`](./3_Comparative_Validation)
+Folder: `3_Comparative_Validation/`
 
-| Notebook                                                                                      | Description                     |
-| --------------------------------------------------------------------------------------------- | ------------------------------- |
-| [`Error_Calculation.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/3_Comparative_Validation/3_1_Error%20Calculation)              | MAE, RMSE, Bias, Percent Change |
-| [`Statistical_Significance.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/3_Comparative_Validation/3_2_Statistically%20Significant) | Two-sample t-test               |
+This module performs quantitative evaluation including:
 
-🎯 **Purpose**
-Quantify and statistically validate performance differences
+- Mean Absolute Error (MAE)  
+- Root Mean Square Error (RMSE)  
+- Systematic Bias
+- Percent Difference
+- Statistical significance tests
+- Five indicators of GLAFT 
+---
+
+### 4️⃣ GLAFT-Based Evaluation
+
+Folder: `4_GLAFT_Batch/`
+- Stable bedrock masking  
+- Kernel Density Estimation (KDE)  
+- Batch statistical evaluation  
+- Automated accuracy assessment  
+**GLAFT (Glacier Feature Tracking Testkit)**
+Reference:
+Zheng, Whyjay, et al. (2023). GLAcier Feature Tracking testkit (GLAFT): a statistically and physically based framework for evaluating glacier velocity products derived from optical satellite image feature tracking. *The Cryosphere*, 17(9), 4063–4078. https://doi.org/10.5194/tc-17-4063-2023  
+---
+### Requirements
+- Python ≥ 3.8  
+- Jupyter Notebook  
+- ENVI (for COSI-Corr processing)
+
+## License
+
+This project is licensed under the MIT License.
+
+See the LICENSE file for details.
 
 ---
 
-### 4️⃣ GLAFT Batch Processing
+## Contact
 
-📂 Folder: [`4_GLAFT_Batch`](./4_GLAFT_Batch)
+Email: gaoyr26@mail2.sysu.edu.cn  
+School of Geospatial Engineering and Science  
+Sun Yat-sen University  
 
-| Notebook                                                                       | Description                           |
-| ------------------------------------------------------------------------------ | ------------------------------------- |
-| [`GLAFT_Batch_Processing.ipynb`](https://github.com/GaoYirong/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity/tree/master/4_Bath_GLAFT)| Batch evaluation using improved GLAFT |
-
-Based on **GLAFT (Zheng et al., 2023)**
-
-Includes:
-
-* Kernel Density Estimation (KDE)
-* Stable bedrock filtering
-* Batch accuracy evaluation
-
-🎯 **Purpose**
-Automated large-scale accuracy assessment
+For questions, suggestions, or collaboration, please open an issue or contact the author.
 
 ---
 
-## 📦 Dependencies
-
-### Core
-
-* Python ≥ 3.8
-* Jupyter Notebook
-
-
-### Python Packages
-
-```bash
-numpy
-scipy
-matplotlib
-pandas
-scikit-learn
-gdal
-```
-
-## 🚀 Quick Start
-
-### 1️⃣ Clone repository
-
-```bash
-git clone https://github.com/yourusername/Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity.git
-cd Performance-of-Landsat-9-Operational-Land-Imager-2-OLI-2-for-mapping-glacier-velocity
-```
-
----
-
-### 2️⃣ Prepare data
-
-Download Landsat imagery from USGS:
-
-👉 https://earthexplorer.usgs.gov/
-
-Place data into:
-
-```
-/data
-```
-
----
-
-### 3️⃣ Run simulation
-
-```bash
-1_Simulated_Image/Simulated_Displacement.ipynb
-1_Simulated_Image/Affine_Transformation.ipynb
-```
-
----
-
-### 4️⃣ Run COSI-Corr
-
-* Use ENVI GUI
-* Export results as GeoTIFF / ENVI format
-* Save into:
-
-```
-/results
-```
-
----
-
-### 5️⃣ Compute statistics
-
-```bash
-3_Comparative_Validation/Error_Calculation.ipynb
-3_Comparative_Validation/Statistical_Significance.ipynb
-```
-
----
-
-### 6️⃣ Run GLAFT evaluation
-
-```bash
-4_GLAFT_Batch/GLAFT_Batch_Processing.ipynb
-```
-
----
-
-
-## 📄 License
-
-This project is licensed under the MIT License
-📎 See [`LICENSE`](./LICENSE)
-
----
-    
-## 📄 Reference
-Zheng, Whyjay, et al. "GLAcier Feature Tracking testkit (GLAFT): a statistically and physically based framework for evaluating glacier velocity products derived from optical satellite image feature tracking." The Cryosphere 17.9 (2023): 4063-4078.[https://doi.org/10.5194/tc-17-4063-2023](https://doi.org/10.5194/tc-17-4063-2023)
-
-
-## ✉️ Contact
-
-📧 [gaoyr26@mail2.sysu.edu.cn](mailto:gaoyr26@mail2.sysu.edu.cn)
-🏫 School of Geospatial Engineering and Science, Sun Yat-sen University
-
-If you have any questions, suggestions, or would like to collaborate, please open an issue or contact the maintainer of this repository.
-
----
-
-_Last updated: Apr. 12, 2026_
----
+_Last updated: May. 10, 2026_
