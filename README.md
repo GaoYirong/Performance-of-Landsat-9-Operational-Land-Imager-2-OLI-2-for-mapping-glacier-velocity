@@ -71,14 +71,6 @@ Zheng, Whyjay, et al. (2023). GLAcier Feature Tracking testkit (GLAFT): a statis
 - Jupyter Notebook  
 - ENVI [COSI-Corr](https://www.tectonics.caltech.edu/slip_history/spot_coseis/download_software.html)
 
-## Author
-
-Email: gaoyr26@mail2.sysu.edu.cn  
-School of Geospatial Engineering and Science  
-Sun Yat-sen University  
-
-For questions, suggestions, or collaboration, please open an issue or contact the author.
-
 ---
 
 _Last updated: May. 10, 2026_
